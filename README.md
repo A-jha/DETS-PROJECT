@@ -12,10 +12,10 @@
       <img alt="Tests Passing" src="https://github.com/anuraghazra/github-readme-stats/workflows/Test/badge.svg" />
     </a>
     <a href="https://github.com/A-Jha/github-readme-stats/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/A-Jha/github-readme-stats?color=0088ff" />
+      <img alt="Issues" src="https://img.shields.io/github/issues/A-Jha/DETS-PROJECT?color=0088ff" />
     </a>
     <a href="https://github.com/A-Jha/github-readme-stats/pulls">
-      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/A-Jha/github-readme-stats?color=0088ff" />
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/A-Jha/DETS-PROJECT?color=0088ff" />
     </a>
     <br />
     <br />
