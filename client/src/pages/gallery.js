@@ -1,10 +1,10 @@
 import React from "react"
-
+import Layout from "../components/Layout/index"
 const Gallery = () => {
   return (
-    <div>
+    <Layout>
       <h1>All Photos and Album will be added here</h1>
-    </div>
+    </Layout>
   )
 }
 

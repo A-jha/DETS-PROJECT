@@ -14,14 +14,17 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "@mui/styles": "^5.0.0",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.13.1",
     "gatsby-plugin-image": "^1.13.0",
     "gatsby-plugin-material-ui": "^3.0.1",
     "gatsby-plugin-sharp": "^3.13.0",
-    "gatsby-source-filesystem": "^3.13.0",
+    "gatsby-source-filesystem": "^3.14.0",
     "gatsby-transformer-sharp": "^3.13.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

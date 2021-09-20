@@ -1,10 +1,10 @@
 import React from "react"
-
+import Layout from "../components/Layout/index"
 const Prayukti = () => {
   return (
-    <div>
+    <Layout>
       <h1>All Details and history and magazines will be available here</h1>
-    </div>
+    </Layout>
   )
 }
 
