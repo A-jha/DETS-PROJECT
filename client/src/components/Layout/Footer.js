@@ -1,10 +1,11 @@
 import React from "react"
 import { Grid, Typography, IconButton } from "@mui/material"
-import { makeStyles, ThemeProvider } from "@mui/styles"
+import { makeStyles } from "@mui/styles"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import InstagramIcon from "@mui/icons-material/Instagram"
 import FacebookIcon from "@mui/icons-material/Facebook"
 import { Link } from "gatsby"
+import Collage from "../Collage/index"
 
 const Footer = () => {
   const classes = useStyles()
@@ -21,11 +22,16 @@ const Footer = () => {
             Thanks For Visiting DETS
           </Typography>
         </Grid>
-        <Grid item xs={12} md={5} className={classes.footerLinks}>
+        <Grid item xs={12} md={3} className={classes.footerLinks}>
           <Typography align="center" variant="h5" gutterBottom>
             Services
           </Typography>
-          <a href="https://www.klyuniv.ac.in/" target="_blank">
+          <a
+            href="https://www.klyuniv.ac.in/"
+            target="_blank"
+            t
+            rel="noreferrer"
+          >
             <Typography align="center">University Homepage</Typography>
           </a>
           <Link to="/docs">
@@ -41,7 +47,18 @@ const Footer = () => {
             <Typography align="center">Events</Typography>
           </Link>
         </Grid>
-        <Grid item xs={12} md={7} className={classes.footerSocial}>
+        <Grid
+          item
+          xs={12}
+          md={5}
+          flex
+          justifyContent="center"
+          alignItems="center"
+          className={classes.collageContainer}
+        >
+          <Collage />
+        </Grid>
+        <Grid item xs={12} md={3} className={classes.footerSocial}>
           <Typography align="center" variant="h5" gutterBottom>
             Social
           </Typography>
@@ -72,7 +89,8 @@ export default Footer
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    background: "#ebecbe",
+    background: "#6cecbe",
+    paddingBottom: "2rem",
   },
   footerContainer: {},
   footerHeading: {
@@ -82,10 +100,17 @@ const useStyles = makeStyles(theme => ({
   footerSocial: {
     display: "flex",
     alignItems: "center",
-    flexDirection: "column",
+    flexDirection: "column !important",
   },
   footerRights: {
     margin: "1rem",
     textAlign: "center",
+  },
+  collageContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: ".5rem",
+    overflow: "hidden",
   },
 }))

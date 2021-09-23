@@ -27,7 +27,10 @@ const AllLinks = () => {
 export default AllLinks
 const query = graphql`
   {
-    allFile(sort: { order: ASC, fields: absolutePath }) {
+    allFile(
+      sort: { order: ASC, fields: absolutePath }
+      filter: { ext: { ne: ".svg" }, sourceInstanceName: { eq: "images" } }
+    ) {
       totalCount
       nodes {
         childImageSharp {

@@ -62,7 +62,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }))
 
-export default function PersistentDrawerLeft({ children }) {
+export default function PersistentDrawerLeft({ children, title }) {
   const theme = useTheme()
   const [open, setOpen] = React.useState(false)
 
@@ -88,8 +88,8 @@ export default function PersistentDrawerLeft({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            DETS
+          <Typography variant="h6" flex={1} align="center">
+            {title ? title : "DETS"}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -121,7 +121,7 @@ export default function PersistentDrawerLeft({ children }) {
         <Divider />
         <AllLinks />
       </Drawer>
-      <Main open={open}>
+      <Main open={open} style={{ background: "#ebecbe" }}>
         <DrawerHeader />
         {children}
         <Footer />
