@@ -52,6 +52,6 @@ const TitleLink = [
   { title: "Chat", link: "/chat" },
   { title: "Docs", link: "/docs" },
   { title: "Gallery", link: "/gallery" },
-  { title: "Logo", link: "/test" },
+  { title: "Logo", link: "/auth" },
   { title: "Events", link: "/prayukti" },
 ]

@@ -86,6 +86,60 @@ const Alumni = () => {
             />
           </Grid>
         </Grid>
+        <Grid container spacing={3} className={classes.cardContainer}>
+          <Grid item xs={12}>
+            <Typography variant="h4" align="center">
+              Graduated Students
+            </Typography>
+            <div className={classes.colorCenter}>
+              <ColorPile />
+            </div>
+          </Grid>
+          <Grid item xs={12} md={3} className={classes.studentCard}>
+            <StudentCard
+              student={{
+                title: "Batch 2017-2021",
+                total: "40",
+                eie: "20",
+                it: "20",
+                link: "student-detail",
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={3} className={classes.studentCard}>
+            <StudentCard
+              student={{
+                title: "Batch 2016-2020",
+                total: "40",
+                eie: "20",
+                it: "20",
+                link: "student-detail",
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={3} className={classes.studentCard}>
+            <StudentCard
+              student={{
+                title: "Batch 2015-2019",
+                total: "40",
+                eie: "20",
+                it: "20",
+                link: "student-detail",
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} md={3} className={classes.studentCard}>
+            <StudentCard
+              student={{
+                title: "Batch 2014-2018",
+                total: "40",
+                eie: "20",
+                it: "20",
+                link: "student-detail",
+              }}
+            />
+          </Grid>
+        </Grid>
       </div>
     </Layout>
   )
