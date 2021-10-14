@@ -23,6 +23,8 @@ module.exports.signup_post = async (req, res) => {
     });
     const token = createToken(user._id);
     res.cookie("token", token, { httpOnly: true, maxAge: 60 * 60 * 1000 });
+    console.log("User Created");
+
     res.status(201).json({ user: user._id });
   } catch (err) {
     const errors = errorHandler(err);
