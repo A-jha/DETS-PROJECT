@@ -34,6 +34,15 @@ const userSchema = mongoose.Schema({
     required: [true, "Please enter password"],
     minlength: [6, "Password is too small"],
   },
+  position: {
+    type: String,
+  },
+  notification: [
+    {
+      username: String,
+      position: String,
+    },
+  ],
 });
 
 //get info about the password entered by user if it is matching or not

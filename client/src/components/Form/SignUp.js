@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Typography, TextField, Stack, Button } from "@mui/material"
 import { makeStyles } from "@mui/styles"
+import axios from "axios"
 const SignupForm = () => {
   const [userInput, setUserInput] = useState({
     username: "",
@@ -27,31 +28,105 @@ const SignupForm = () => {
     passwordError: "",
     confirmPasswordError: "",
   })
-
   const handleSubmit = async e => {
     e.preventDefault()
+    const formData = new FormData()
+    setInputError({
+      userNameError: "",
+      firstNameError: "",
+      lastNameError: "",
+      emailError: "",
+      passwordError: "",
+      confirmPasswordError: "",
+    })
+    setInputErrorState({
+      userNameErrorState: false,
+      lastNameErrorState: false,
+      firstNameErrorState: false,
+      emailErrorState: false,
+      passwordErrorState: false,
+      confirmPasswordErrorState: false,
+    })
     try {
-      const res = await fetch("http://localhost:5000/auth/signup", {
-        method: "post",
-        mode: "no-cors",
-        body: JSON.stringify({
-          username: userInput.username,
-          firstName: userInput.firstName,
-          lastName: userInput.lastName,
-          email: userInput.email,
-          password: userInput.password,
-          confirmPassword: userInput.confirmPassword,
-        }),
+      const result = await fetch("http://localhost:5000/auth/signup", {
+        method: "POST",
+        body: JSON.stringify(userInput),
         headers: { "Content-Type": "application/json" },
       })
-      const data = await res.json()
+      const data = await result.json()
       console.log(data)
       console.log("handled")
+      if (data.errors) {
+        const errors = data.errors
+        console.log(errors)
+        if (errors.username) {
+          setInputError(error1 => ({
+            ...error1,
+            userNameError: errors.username,
+          }))
+          setInputErrorState(error2 => ({
+            ...error2,
+            userNameErrorState: true,
+          }))
+        }
+        if (errors.firstName) {
+          setInputError(error1 => ({
+            ...error1,
+            firstNameError: errors.firstName,
+          }))
+          setInputErrorState(error2 => ({
+            ...error2,
+            firstNameErrorState: true,
+          }))
+        }
+        if (errors.lastName) {
+          setInputError(error1 => ({
+            ...error1,
+            lastNameError: errors.lastName,
+          }))
+          setInputErrorState(error2 => ({
+            ...error2,
+            lastNameErrorState: true,
+          }))
+        }
+        if (errors.email) {
+          setInputError(error1 => ({
+            ...error1,
+            emailError: errors.email,
+          }))
+          setInputErrorState(error2 => ({
+            ...error2,
+            emailErrorState: true,
+          }))
+        }
+        if (errors.password) {
+          setInputError(error1 => ({
+            ...error1,
+            passwordError: errors.password,
+          }))
+          setInputErrorState(error2 => ({
+            ...error2,
+            passwordErrorState: true,
+          }))
+        }
+        if (errors.confirmPassword) {
+          setInputError(error1 => ({
+            ...error1,
+            confirmPasswordError: errors.confirmPassword,
+          }))
+          setInputErrorState(error2 => ({
+            ...error2,
+            confirmPasswordErrorState: true,
+          }))
+        }
+      } else {
+        window.location.href = "/"
+      }
     } catch (error) {
-      console.log(userInput)
       console.log(error)
     }
   }
+
   const classes = useStyles()
   return (
     <form>

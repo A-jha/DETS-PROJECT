@@ -1,9 +1,10 @@
 import React from "react"
 import Layout from "../components/Layout/index"
+import Notice from "../components/Form/Notice"
 const Notifications = () => {
   return (
     <Layout>
-      <h1>All Notification Will reside here</h1>
+      <Notice />
     </Layout>
   )
 }

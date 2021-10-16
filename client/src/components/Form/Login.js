@@ -4,7 +4,7 @@ import { makeStyles } from "@mui/styles"
 const SignupForm = () => {
   const classes = useStyles()
   return (
-    <form method="POST" action="http://localhost:5000/auth/signup">
+    <form method="POST" action="http://localhost:5000/auth/login">
       <Stack spacing={2}>
         <div className={classes.formItem}>
           <Typography id="usernameError"></Typography>
