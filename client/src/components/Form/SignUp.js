@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from "react"
-import { Typography, TextField, Stack, Button } from "@mui/material"
+import React, { useState } from "react"
+import {
+  Typography,
+  TextField,
+  Stack,
+  Button,
+  Select,
+  MenuItem,
+} from "@mui/material"
 import { makeStyles } from "@mui/styles"
-import axios from "axios"
 const SignupForm = () => {
   const [userInput, setUserInput] = useState({
     username: "",
@@ -10,6 +16,7 @@ const SignupForm = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    position: "",
   })
 
   const [inputErrorState, setInputErrorState] = useState({
@@ -19,6 +26,7 @@ const SignupForm = () => {
     emailErrorState: false,
     passwordErrorState: false,
     confirmPasswordErrorState: false,
+    positionErrorState: false,
   })
   const [inputError, setInputError] = useState({
     userNameError: "",
@@ -46,8 +54,10 @@ const SignupForm = () => {
       emailErrorState: false,
       passwordErrorState: false,
       confirmPasswordErrorState: false,
+      positionErrorState: false,
     })
     try {
+      console.log(userInput)
       const result = await fetch("http://localhost:5000/auth/signup", {
         method: "POST",
         body: JSON.stringify(userInput),
@@ -117,6 +127,12 @@ const SignupForm = () => {
           setInputErrorState(error2 => ({
             ...error2,
             confirmPasswordErrorState: true,
+          }))
+        }
+        if (errors.position) {
+          setInputErrorState(error1 => ({
+            ...error1,
+            positionErrorState: true,
           }))
         }
       } else {
@@ -208,6 +224,24 @@ const SignupForm = () => {
           />
         </div>
         <div className={classes.formItem}>
+          <Select
+            value={userInput.position}
+            onChange={e =>
+              setUserInput(prevState => ({
+                ...prevState,
+                position: e.target.value,
+              }))
+            }
+            error={inputErrorState.positionErrorState}
+            className={classes.selectField}
+          >
+            <MenuItem value="student" selected>
+              Student
+            </MenuItem>
+            <MenuItem value="teacher">Teacher</MenuItem>
+          </Select>
+        </div>
+        <div className={classes.formItem}>
           <Typography id="passwordError"></Typography>
           <TextField
             fullWidth={true}
@@ -262,4 +296,7 @@ export default SignupForm
 
 const useStyles = makeStyles(theme => ({
   formItem: {},
+  selectField: {
+    width: "100%",
+  },
 }))

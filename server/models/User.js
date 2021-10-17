@@ -36,6 +36,7 @@ const userSchema = mongoose.Schema({
   },
   position: {
     type: String,
+    required: [true, "Please Select Your Status"],
   },
   notification: [
     {

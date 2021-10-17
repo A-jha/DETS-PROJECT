@@ -12,10 +12,12 @@ import {
   IconButton,
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import ChevronRightIcon from "@mui/icons-material/ChevronRight"
 import Footer from "./Footer"
 import AllLinks from "./Link"
+import { Link } from "gatsby"
 const drawerWidth = 240
 
 const Main = styled("main", { shouldForwardProp: prop => prop !== "open" })(
@@ -91,6 +93,9 @@ export default function PersistentDrawerLeft({ children, title }) {
           <Typography variant="h6" flex={1} align="center">
             {title ? title : "DETS"}
           </Typography>
+          <Link to="/user/">
+            <PersonOutlineIcon style={{ color: "white" }} />
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer

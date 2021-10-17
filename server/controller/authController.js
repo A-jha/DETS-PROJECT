@@ -9,8 +9,15 @@ module.exports.signup_get = async (req, res) => {
 };
 
 module.exports.signup_post = async (req, res) => {
-  let { username, firstName, lastName, email, password, confirmPassword } =
-    req.body;
+  let {
+    username,
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+    position,
+  } = req.body;
   try {
     const user = await User.create({
       username,
@@ -19,6 +26,7 @@ module.exports.signup_post = async (req, res) => {
       email,
       password,
       confirmPassword,
+      position,
     });
     const token = createToken(user._id);
     res.cookie("token", token, { httpOnly: true, maxAge: 60 * 60 * 1000 });
