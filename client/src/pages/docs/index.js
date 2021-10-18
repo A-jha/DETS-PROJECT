@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/Layout/index"
+import Layout from "../../components/Layout/index"
 import { Typography, Grid, Paper, Badge } from "@mui/material"
 import { makeStyles } from "@mui/styles"
 const Docs = () => {

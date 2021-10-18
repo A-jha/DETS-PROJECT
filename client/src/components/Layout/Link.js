@@ -48,10 +48,10 @@ const query = graphql`
 const TitleLink = [
   { title: "Home", link: "/" },
   { title: "Notice", link: "/notice" },
-  { title: "Alumni", link: "/alumni" },
-  { title: "Chat", link: "/chat" },
+  { title: "Alumni", link: "/students" },
+  { title: "Chat", link: "/discuss" },
   { title: "Docs", link: "/docs" },
   { title: "Gallery", link: "/gallery" },
   { title: "Logo", link: "/auth" },
-  { title: "Events", link: "/prayukti" },
+  { title: "Events", link: "/festival" },
 ]

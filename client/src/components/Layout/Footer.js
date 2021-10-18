@@ -63,7 +63,10 @@ const Footer = () => {
             Social
           </Typography>
           <div className={classes.socialIcons}>
-            <IconButton>
+            <IconButton
+              href="https://github.com/A-jha/DETS-PROJECT"
+              target="_blank"
+            >
               <GitHubIcon />
             </IconButton>
             <IconButton>

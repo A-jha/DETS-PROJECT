@@ -1,10 +1,10 @@
 import React from "react"
-import Layout from "../components/Layout/index"
+import Layout from "../../components/Layout/index"
 import { Grid, Paper, Typography } from "@mui/material"
 import { StaticImage } from "gatsby-plugin-image"
 import { makeStyles } from "@mui/styles"
-import StudentCard from "../components/Card/StudentCard"
-import ColorPile from "../components/particals/colorPile"
+import StudentCard from "../../components/Card/StudentCard"
+import ColorPile from "../../components/particals/colorPile"
 const Alumni = () => {
   const classes = useStyles()
   return (

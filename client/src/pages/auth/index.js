@@ -1,11 +1,9 @@
 import React, { useState } from "react"
-import SignUp from "../components/Form/SignUp"
-import Login from "../components/Form/Login"
+import SignUp from "../../components/Form/SignUp"
+import Login from "../../components/Form/Login"
 import { Typography, Grid, Box, CssBaseline, Button } from "@mui/material"
 import { makeStyles } from "@mui/styles"
-import Layout from "../components/Layout/index"
-
-import ColorPile from "../components/particals/colorPile"
+import Layout from "../../components/Layout/index"
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(false)
   const [authType, setAuthType] = useState("SignUp")
