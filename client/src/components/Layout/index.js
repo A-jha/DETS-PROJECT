@@ -126,7 +126,10 @@ export default function PersistentDrawerLeft({ children, title }) {
         <Divider />
         <AllLinks />
       </Drawer>
-      <Main open={open} style={{ background: "#ebecbe" }}>
+      <Main
+        open={open}
+        style={{ background: "#ebecbe", maxWidth: "100vw", overflow: "hidden" }}
+      >
         <DrawerHeader />
         {children}
         <Footer />

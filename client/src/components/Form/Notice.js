@@ -1,13 +1,38 @@
 import React, { useState } from "react"
 import { Typography, Grid, Button, TextField, Stack } from "@mui/material"
 import { makeStyles } from "@mui/styles"
-const Notice = () => {
+import { Link } from "gatsby"
+const Notice = ({ data, url }) => {
   const [notice, setNotice] = useState({
-    title: "",
-    description: "",
-    link: "",
-    createdAt: new Date().toLocaleDateString(),
+    title: data.title || "",
+    description: data.description || "",
+    link: data.link || "",
   })
+  const [error, setError] = useState({
+    titleError: "",
+    descriptionError: "",
+    linkError: "",
+  })
+  const [errorState, setErrorState] = useState({
+    titleErrorState: false,
+    descriptionErrorState: false,
+    linkErrorState: false,
+  })
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+    console.log(notice)
+    //console.log(url)
+    try {
+      const result = await fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(notice),
+        headers: { "Content-Type": "application/json" },
+      })
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
   const classes = useStyles()
   return (
     <Grid container justifyContent="center">
@@ -26,6 +51,8 @@ const Notice = () => {
               type="text"
               value={notice.title}
               variant="outlined"
+              error={errorState.titleErrorState}
+              helperText={error.titleError}
               onChange={e =>
                 setNotice(prevNotice => ({
                   ...prevNotice,
@@ -39,6 +66,8 @@ const Notice = () => {
               fullWidth={true}
               label="Description"
               type="text"
+              error={errorState.descriptionErrorState}
+              helperText={error.descriptionError}
               value={notice.description}
               variant="outlined"
               rows={5}
@@ -64,11 +93,25 @@ const Notice = () => {
                   link: e.target.value,
                 }))
               }
+              error={errorState.linkErrorState}
+              helperText={error.linkError}
             ></TextField>
           </div>
-          <Button variant="outlined" className={classes.btn}>
-            Submit
-          </Button>
+          <div className={classes.btnContainer}>
+            <Link to="/notice">
+              <Button variant="outlined" className={classes.btn}>
+                Cancel
+              </Button>
+            </Link>
+            <Button
+              variant="outlined"
+              className={classes.btn}
+              type="submit"
+              onClick={e => handleSubmit(e)}
+            >
+              Submit
+            </Button>
+          </div>
         </Stack>
       </Grid>
     </Grid>
@@ -86,10 +129,13 @@ const useStyles = makeStyles({
     marginLeft: "auto",
     marginBottom: "10px",
   },
-  btn: {
-    width: "50%",
-    marginLeft: "auto !important",
-    marginRight: "auto !important",
+  btnContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: "1rem !important",
+  },
+  btn: {
+    margin: "0rem  .3rem",
   },
 })

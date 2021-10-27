@@ -13,8 +13,8 @@ import { red } from "@mui/material/colors"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import ShareIcon from "@mui/icons-material/Share"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
-import MoreVertIcon from "@mui/icons-material/MoreVert"
-
+import EditIcon from "@mui/icons-material/Edit"
+import { Link } from "gatsby"
 const ExpandMore = styled(props => {
   const { expand, ...other } = props
   return <IconButton {...other} />
@@ -49,9 +49,11 @@ export default function CustomCard({
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+          <Link to="/notice/update/">
+            <IconButton>
+              <EditIcon color="success" />
+            </IconButton>
+          </Link>
         }
         title={username || "User Name"}
         subheader={createdAt || new Date().toDateString()}
@@ -59,7 +61,7 @@ export default function CustomCard({
       <CardMedia
         component="img"
         height="194"
-        image={imgLink}
+        image="https://www.the-sun.com/wp-content/uploads/sites/6/2021/01/NINTCHDBPICT000631473461.jpg"
         alt="Notice-Img"
       />
       <CardContent>
@@ -69,9 +71,6 @@ export default function CustomCard({
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>

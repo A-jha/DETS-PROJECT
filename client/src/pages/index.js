@@ -67,7 +67,7 @@ export default function Home() {
 
 const useStyles = makeStyles({
   topContent: {
-    background: "linear-gradient(to right , #654ea3, #FF416C,#FF4B2B)",
+    background: "linear-gradient(to right , #654ea3, #FF416C,#F14B2B, #654ea3)",
   },
   homeContent: {
     display: "flex",
@@ -88,7 +88,7 @@ const useStyles = makeStyles({
   },
   secondContent: {
     padding: "2rem .5rem",
-    background: "linear-gradient(to right , #654ea3, #FF416C,#FF4B2B)",
+    background: "linear-gradient(to right , #654ea3, #FF416C,#F14B2B, #654ea3)",
   },
   singleCardContainer: {
     display: "flex",

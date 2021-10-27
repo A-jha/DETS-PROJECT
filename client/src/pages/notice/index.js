@@ -1,14 +1,50 @@
 import React from "react"
 import Layout from "../../components/Layout/index"
-import Notice from "../../components/Form/Notice"
-import { Typography, Grid } from "@mui/material"
+import { Link } from "gatsby"
+import { Typography, Grid, Button } from "@mui/material"
 import Card from "../../components/Card/index"
 const Notifications = () => {
   return (
-    <Layout>
+    <Layout title={"Notice"}>
       <Grid container justifyContent="center">
-        <Grid item xs={12}>
-          <Notice />
+        <Grid
+          item
+          xs={12}
+          mt={3}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="h5" align="center">
+            All Notice
+          </Typography>
+          <div
+            style={{
+              width: "120px",
+              height: "10px",
+              background: "black",
+              border: "2px solid yellow",
+              borderRadius: "1rem",
+            }}
+          ></div>
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            marginTop: "1rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Link to="/notice/new">
+            <Button variant="contained" color="success">
+              Add New
+            </Button>
+          </Link>
         </Grid>
         <Grid
           item

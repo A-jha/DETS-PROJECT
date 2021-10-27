@@ -4,23 +4,12 @@ const noticeController = require("../controller/noticeController");
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send("All Notice will be here");
-});
+router.get("/", noticeController.notice_get);
 
-router.post("/", (req, res) => {
-  console.log(req.body);
-  res.send("here we will post notice");
-});
+router.post("/", noticeController.notice_post);
 
-router.put("/", (req, res) => {
-  console.log(req.body);
-  res.send("here we will update notice");
-});
+router.put("/:id", noticeController.notice_update);
 
-router.delete("/:id", (req, res) => {
-  console.log(req.params);
-  res.send("Here we will delete");
-});
+router.delete("/:id", noticeController.notice_delete);
 
 module.exports = router;

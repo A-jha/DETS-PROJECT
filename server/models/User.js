@@ -38,12 +38,6 @@ const userSchema = mongoose.Schema({
     type: String,
     required: [true, "Please Select Your Status"],
   },
-  notification: [
-    {
-      username: String,
-      position: String,
-    },
-  ],
 });
 
 //get info about the password entered by user if it is matching or not
