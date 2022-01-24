@@ -1,0 +1,21 @@
+.form {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  max-width: 900px;
+  min-width: 400px;
+  width: 60%;
+  background: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-right: 10px;
+  border-radius: 10px;
+}

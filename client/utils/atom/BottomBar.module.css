@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.c1,
+.c2,
+.c3,
+.c4,
+.c5,
+.c6 {
+  min-width: 100px;
+  height: 20px;
+}
+.c1 {
+  background-color: #fafa05;
+}
+.c2 {
+  background-color: #12c73f;
+}
+.c3 {
+  background-color: #fcba03;
+}
+.c4 {
+  background-color: #849483;
+}
+.c5 {
+  background-color: #7eb77f;
+}
+.c6 {
+  background-color: #f92a82;
+}

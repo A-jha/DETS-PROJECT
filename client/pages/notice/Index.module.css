@@ -1,0 +1,11 @@
+.section1 {
+}
+.section2 {
+  display: flex;
+  justify-content: center;
+}
+.section3 {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
