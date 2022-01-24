@@ -1,0 +1,16 @@
+.form {
+  padding: 30px 10px;
+  display: flex;
+  justify-content: center;
+}
+.formContainer {
+  background: white;
+  max-width: 1000px;
+}
+.formContainer:nth-child(n) {
+  padding: 10px;
+}
+.radioGroup {
+  display: flex;
+  flex-direction: row;
+}

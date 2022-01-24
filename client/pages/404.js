@@ -1,0 +1,35 @@
+import React from "react";
+import Layout from "../components/layout/Layout";
+import Typography from "@mui/material/Typography";
+import classes from "../styles/Error.module.css";
+import Grid from "@mui/material/Grid";
+import Alert from "@mui/material/Alert";
+import Image from "next/image";
+const hello = () => {
+  return (
+    <Layout>
+      <Grid container className={classes.main}>
+        {/* <Grid item xs={12} className={classes.err}>
+          <Alert severity="error">Page Not found!</Alert>
+        </Grid>
+        <Grid item xs={12} className={classes.errorCont}>
+          <Typography variant="h2" align="center">
+            4<span className={classes.o}>0</span>4
+          </Typography>
+        </Grid> */}
+        <Grid item xs={12} className={classes.imgContainer}>
+          <Image
+            src="https://raw.githubusercontent.com/A-jha/DETS-DB/master/img/404.png"
+            alt="404-img"
+            layout="fixed"
+            width="600"
+            height="500"
+            className={classes.errorImg}
+          />
+        </Grid>
+      </Grid>
+    </Layout>
+  );
+};
+
+export default hello;

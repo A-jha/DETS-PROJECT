@@ -1,0 +1,20 @@
+.topCont {
+  background: #051524;
+}
+.alumni1 {
+  width: 100%;
+  border-radius: 10px;
+}
+.topCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+.textCont {
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

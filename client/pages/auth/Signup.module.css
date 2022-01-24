@@ -1,0 +1,21 @@
+.formCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 30px;
+  min-height: 70vh;
+}
+.form {
+  max-width: 900px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 30px 30px 10px;
+  border-radius: 10px;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+}

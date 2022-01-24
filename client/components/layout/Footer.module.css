@@ -1,0 +1,12 @@
+.footer {
+  background-color: aqua;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+}
+.a {
+  text-decoration: none;
+  color: rgb(39, 29, 29);
+}

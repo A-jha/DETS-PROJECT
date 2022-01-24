@@ -1,0 +1,21 @@
+.main {
+  background-color: #051524;
+}
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
