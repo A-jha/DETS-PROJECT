@@ -12,10 +12,51 @@
   justify-content: center;
   align-items: center; */
 }
-
+.quickLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.quickLinks button:nth-child(2n) {
+  margin: 10px;
+  border-color: aliceblue;
+}
+.quickLinks a {
+  text-decoration: none;
+  color: aliceblue;
+}
 .cards {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.hodImageContainer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+}
+.hodImage {
+  border-radius: 5px;
+}
+.hodInfo {
+  color: wheat;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+.hodEmailButton {
+  margin: 10px;
+}
+.hodEmailButton a {
+  text-decoration: none;
+  color: aliceblue;
 }

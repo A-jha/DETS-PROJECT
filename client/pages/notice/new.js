@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Layout from "../../components/layout/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -9,148 +10,92 @@ import classes from "./New.module.css";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import { Button } from "@mui/material";
 const defaultValues = {
-  firstName: "",
-  lastName: "",
-  phoneNumber: "",
-  email: "",
-  startYear: "",
-  endYear: "",
-  gender: 0,
-  photo: "",
-  password: "",
-  confirmPassword: "",
+  title: "",
+  content: "",
+  date: "",
+  link: "",
 };
 const NewNotice = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState(defaultValues);
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     console.log("Form is submitted");
+    router.replace("/notice");
   };
 
   const handleChange = (e) => {
-    const { name, values } = e.target;
+    const { name, value } = e.target;
+    console.log(e.target.value);
     setFormData({
       ...formData,
-      [name]: values,
+      [name]: value,
     });
   };
   return (
     <Layout title="New Notice">
-      <form onSubmit={handleSubmit} className={classes.form}>
+      <form onSubmit={(e) => handleSubmit(e)} className={classes.form}>
         <Grid container className={classes.formContainer} spacing={2}>
           <Grid item xs={12}>
-            <Typography color="#fff" align="center" variant="h4" py={3}>
+            <Typography color="#000" align="center" variant="h4" py={3}>
               Please add Information Carefully
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <TextField
               type="text"
-              name="firstName"
-              value={formData.firstName}
+              name="title"
+              value={formData.title}
               onChange={handleChange}
-              label="First Name"
+              label="title"
               required
               fullWidth
+              variant="outlined"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
               type="text"
-              name="lastName"
-              fullWidth
-              value={formData.lastName}
+              name="content"
+              value={formData.content}
               onChange={handleChange}
-              label="Last Name"
+              label="Content"
               required
+              fullWidth
+              multiline
+              rows={6}
+              variant="outlined"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
-              type="number"
-              label="Contact Number"
-              name="phoneNumber"
-              value={formData.phoneNumber}
+              type="datetime-local"
+              name="date"
+              value={formData.date}
               onChange={handleChange}
               required
               fullWidth
+              variant="outlined"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
             <TextField
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              label="Email"
-              required
+              type="link"
               fullWidth
+              name="link"
+              label="additional Link"
+              value={formData.link}
+              onChange={handleChange}
+              variant="outlined"
             ></TextField>
           </Grid>
           <Grid item xs={12}>
-            <TextField
-              type="number"
-              name="StartYear"
-              value={formData.startYear}
-              onChange={handleChange}
-              label="Starting Year"
-              required
-              fullWidth
-            ></TextField>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              type="number"
-              name="endYear"
-              value={formData.endYear}
-              onChange={handleChange}
-              label="End Year"
-              required
-              fullWidth
-            ></TextField>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              type="number"
-              name="endYear"
-              value={formData.endYear}
-              onChange={handleChange}
-              label="End Year"
-              required
-              fullWidth
-            ></TextField>
-          </Grid>
-          <Grid item xs={12}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Gender</FormLabel>
-              <RadioGroup
-                aria-label="gender"
-                defaultValue="female"
-                name="radio-buttons-group"
-                onChange={handleChange}
-                className={classes.radioGroup}
-              >
-                <FormControlLabel
-                  value="female"
-                  control={<Radio />}
-                  label="Female"
-                />
-                <FormControlLabel
-                  value="male"
-                  control={<Radio />}
-                  label="Male"
-                />
-                <FormControlLabel
-                  value="other"
-                  control={<Radio />}
-                  label="Believe in equality"
-                />
-              </RadioGroup>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField type="link"></TextField>
+            <Button variant="contained" type="submit">
+              Submit
+            </Button>
           </Grid>
         </Grid>
       </form>

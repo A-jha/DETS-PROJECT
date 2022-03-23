@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["raw.githubusercontent.com", "github.com"],
+    domains: ["raw.githubusercontent.com", "github.com", "via.placeholder.com"],
   },
 };
 

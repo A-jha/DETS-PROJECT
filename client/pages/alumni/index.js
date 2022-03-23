@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import classes from "../styles/Alumni.module.css";
+import classes from "../../styles/Alumni.module.css";
 const Alumni = () => {
   return (
     <Layout title="Alumni">

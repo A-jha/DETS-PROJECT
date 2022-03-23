@@ -6,6 +6,7 @@
 .formContainer {
   background: white;
   max-width: 1000px;
+  border-radius: 10px;
 }
 .formContainer:nth-child(n) {
   padding: 10px;

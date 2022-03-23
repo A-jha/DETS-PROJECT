@@ -15,17 +15,21 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
+import Home from "@mui/icons-material/Home";
+import Button from "@mui/material/Button";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SchoolIcon from "@mui/icons-material/School";
 import SourceIcon from "@mui/icons-material/Source";
 import CollectionsIcon from "@mui/icons-material/Collections";
+import SitemapIcon from "@mui/icons-material/LineAxis";
 import CelebrationIcon from "@mui/icons-material/Celebration";
+import Feedback from "@mui/icons-material/Feedback";
 import Footer from "./Footer";
 import Link from "next/link";
 import classes from "./Layout.module.css";
 import Head from "next/head";
-import CodeIcon from "@mui/icons-material/Code";
+import HomeIcon from "@mui/icons-material/Home";
+import Questions from "@mui/icons-material/QuestionAnswer";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import PersonIcon from "@mui/icons-material/Person";
 const drawerWidth = 240;
@@ -86,7 +90,7 @@ export default function Header({ children, title }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const handleClick = () => {};
   return (
     <>
       <Head>
@@ -107,14 +111,21 @@ export default function Header({ children, title }) {
             >
               <MenuIcon />
             </IconButton>
+            <Link href={"/"}>
+              <Home sx={{ textAlign: "center", cursor: "pointer" }} />
+            </Link>
+
             <Typography
               variant="h6"
               noWrap
               component="div"
-              sx={{ textAlign: "center", width: "100%" }}
+              sx={{ textAlign: "center", width: "100%", cursor: "pointer" }}
             >
               DETS CONNECT
             </Typography>
+            <Button color="success" onClick={handleClick}>
+              Signup
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -179,14 +190,13 @@ const links = [
   { title: "Home", path: "/", icon: <HomeIcon /> },
   { title: "Notice", path: "/notice", icon: <NotificationsIcon /> },
   { title: "Alumni", path: "/alumni", icon: <SchoolIcon /> },
-
-  { title: "Docs", path: "/docs", icon: <SourceIcon /> },
   { title: "Gallery", path: "/gallery", icon: <CollectionsIcon /> },
-  { title: "Events", path: "/events", icon: <CelebrationIcon /> },
 ];
 
 const others = [
-  { title: "Code", path: "/docs", icon: <CodeIcon /> },
-  { title: "Register", path: "/auth", icon: <LockOpenIcon /> },
+  { title: "Events & News", path: "/events", icon: <CelebrationIcon /> },
   { title: "Profile", path: "/events", icon: <PersonIcon /> },
+  { title: "FAQS", path: "/faqs", icon: <Questions /> },
+  { title: "Feedback", path: "/feedback", icon: <Feedback /> },
+  { title: "Sitemap", path: "/sitemap", icon: <SitemapIcon /> },
 ];
