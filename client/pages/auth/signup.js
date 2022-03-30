@@ -7,6 +7,7 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import classes from "./Signup.module.css";
 import Alert from "@mui/material/Alert";
+import Link from "next/link";
 const defaultValues = {
   firstName: "",
   lastName: "",
@@ -123,6 +124,12 @@ const Signup = () => {
             <Button type="submit" variant="contained">
               Submit
             </Button>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography align="center">
+              If You Are already registered then{" "}
+              <Link href="/auth/login">login</Link>
+            </Typography>
           </Grid>
         </Grid>
       </form>

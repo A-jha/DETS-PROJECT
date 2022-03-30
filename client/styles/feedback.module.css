@@ -1,5 +1,5 @@
 .form {
-  min-height: 80vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,4 +25,18 @@
 }
 .buttonContainer {
   padding: 20px;
+}
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel {
+  width: 80vw;
+}
+.feedbackCard {
+  padding: 10px;
+}
+.feedbackAvatar {
+  display: flex;
 }

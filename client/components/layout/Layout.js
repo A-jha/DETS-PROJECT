@@ -32,6 +32,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import Questions from "@mui/icons-material/QuestionAnswer";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import PersonIcon from "@mui/icons-material/Person";
+import { useRouter } from "next/router";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -90,7 +91,11 @@ export default function Header({ children, title }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const handleClick = () => {};
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/auth/login");
+  };
+
   return (
     <>
       <Head>

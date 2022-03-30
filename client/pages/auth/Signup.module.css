@@ -4,6 +4,8 @@
   align-items: center;
   padding-left: 50px;
   padding-right: 30px;
+  padding-top: 50px;
+  padding-bottom: 30px;
   min-height: 70vh;
 }
 .form {

@@ -2,7 +2,9 @@ import React from "react";
 import Layout from "../../components/layout/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { Paper, Button } from "@mui/material";
 import Image from "next/image";
+import Carousel from "react-material-ui-carousel";
 import classes from "../../styles/Alumni.module.css";
 const Alumni = () => {
   return (
@@ -38,9 +40,41 @@ const Alumni = () => {
             is worth noticing.{" "}
           </Typography>
         </Grid>
+        <Grid item xs={12} className={classes.carouselContainer}>
+          <Typography align="center" variant="h3" color="white">
+            Feedbacks
+          </Typography>
+          <Carousel cycleNavigation swipe>
+            {carouselItems.map((item, i) => (
+              <Item key={i} item={item} />
+            ))}
+          </Carousel>
+        </Grid>
       </Grid>
     </Layout>
   );
 };
 
+var carouselItems = [
+  {
+    name: "Avinash Sharma",
+    feedback:
+      "Everything is looking good but something is missing and celebrate and reunite with each other guys. Department of engineering and technological studies. Har Har Mahadev ",
+  },
+  {
+    name: "Hritik Raj",
+    feedback:
+      "We are having some good and hard time together in this time period we all have to come together and show the unity of Department of engineering and technological studies. Har Har Mahadev ",
+  },
+];
+function Item(props) {
+  return (
+    <Paper>
+      <h2>{props.item.name}</h2>
+      <p>{props.item.feedback}</p>
+
+      <Button className="CheckButton">Check it out!</Button>
+    </Paper>
+  );
+}
 export default Alumni;
