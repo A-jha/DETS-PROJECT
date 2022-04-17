@@ -20,9 +20,19 @@ const defaultValues = {
 const NewNotice = () => {
   const router = useRouter();
   const [formData, setFormData] = useState(defaultValues);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    document.getElementById("submitBtn").innerText = "Submitting..";
     e.preventDefault();
     console.log(formData);
+    const response = await fetch("/api/notice", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
     console.log("Form is submitted");
     router.replace("/notice");
   };
@@ -93,7 +103,7 @@ const NewNotice = () => {
             ></TextField>
           </Grid>
           <Grid item xs={12}>
-            <Button variant="contained" type="submit">
+            <Button variant="contained" type="submit" id="submitBtn">
               Submit
             </Button>
           </Grid>

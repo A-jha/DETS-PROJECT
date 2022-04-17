@@ -83,6 +83,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function Header({ children, title }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [user, setUser] = React.useState("login");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -128,8 +129,12 @@ export default function Header({ children, title }) {
             >
               DETS CONNECT
             </Typography>
-            <Button color="success" onClick={handleClick}>
-              Signup
+            <Button
+              sx={{ color: "white" }}
+              variant="contained"
+              onClick={handleClick}
+            >
+              {user}
             </Button>
           </Toolbar>
         </AppBar>
@@ -199,7 +204,7 @@ const links = [
 ];
 
 const others = [
-  { title: "Events & News", path: "/events", icon: <CelebrationIcon /> },
+  { title: "Events", path: "/events", icon: <CelebrationIcon /> },
   { title: "Profile", path: "/events", icon: <PersonIcon /> },
   { title: "FAQS", path: "/faqs", icon: <Questions /> },
   { title: "Feedback", path: "/feedback", icon: <Feedback /> },

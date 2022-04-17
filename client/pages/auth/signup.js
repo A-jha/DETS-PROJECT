@@ -26,10 +26,19 @@ const defaultErrorValues = {
 const Signup = () => {
   const [formData, setFormData] = useState(defaultValues);
   const [formDataError, setFormDataError] = useState(defaultErrorValues);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     verifyFormData();
     console.log(formData);
+    const response = await fetch("/api/signup", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -8,14 +8,23 @@ import classes from "./Login.module.css";
 import { Button } from "@mui/material";
 import Link from "next/link";
 const defaultValues = {
-  gmail: "",
+  email: "",
   password: "",
 };
 const Login = () => {
   const [formData, setFormData] = useState(defaultValues);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+    const response = await fetch("/api/login", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    //console.log(data);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +44,11 @@ const Login = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              name="gmail"
+              name="email"
               label="Email"
               type="email"
-              value={formData.gmail}
+              required
+              value={formData.email}
               placeholder="abcd@xyz.com"
               onChange={handleChange}
               fullWidth
@@ -46,6 +56,7 @@ const Login = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
+              required
               name="password"
               label="Password"
               type="password"

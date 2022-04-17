@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../components/layout/Layout";
+import { MongoClient } from "mongodb";
 import classes from "../styles/feedback.module.css";
 import {
   Grid,
@@ -9,14 +10,35 @@ import {
   Paper,
   Avatar,
 } from "@mui/material";
+import { useRouter } from "next/router";
 import Carousel from "react-material-ui-carousel";
 import Forward from "@mui/icons-material/Send";
-const Feedback = () => {
-  const [feedbackText, setFeedbackText] = useState("");
-  const handleSubmit = (e) => {};
+let defaultVal = {
+  username: "Avinash",
+  feedback: "",
+};
+const Feedback = ({ feedbacks }) => {
+  const router = useRouter();
+  const [feedbackText, setFeedbackText] = useState(defaultVal);
   const handleChange = (e) => {
-    setFeedbackText(e.target.value);
+    const { name, value } = e.target;
+    // console.log(feedbackText.feedback);
+    setFeedbackText({ ...feedbackText, [name]: value });
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/api/newFeedback", {
+      method: "POST",
+      body: JSON.stringify(feedbackText),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+    await router.push("/thankyou");
+  };
+
   return (
     <Layout title={"Feedback"}>
       <form onSubmit={handleSubmit} className={classes.form}>
@@ -30,10 +52,12 @@ const Feedback = () => {
             <TextField
               type="text"
               variant="outlined"
-              value={feedbackText}
+              value={feedbackText.feedback}
               multiline
               onChange={handleChange}
               label="Feedback"
+              required
+              name="feedback"
               fullWidth
               rows={8}
             ></TextField>
@@ -52,7 +76,7 @@ const Feedback = () => {
             Recent Feedbacks
           </Typography>
           <Carousel cycleNavigation swipe className={classes.carousel}>
-            {carouselItems.map((item, i) => (
+            {feedbacks.map((item, i) => (
               <Item key={i} item={item} />
             ))}
           </Carousel>
@@ -61,35 +85,46 @@ const Feedback = () => {
     </Layout>
   );
 };
-var carouselItems = [
-  {
-    name: "Avinash Sharma",
-    feedback:
-      "Everything is looking good but something is missing and celebrate and reunite with each other guys. Department of engineering and technological studies. Har Har Mahadev ",
-  },
-  {
-    name: "Hritik Raj",
-    feedback:
-      "We are having some good and hard time together in this time period we all have to come together and show the unity of Department of engineering and technological studies. Har Har Mahadev ",
-  },
-];
 function Item(props) {
   return (
     <Paper className={classes.feedbackCard}>
       <div className={classes.feedbackAvatar}>
         <Avatar
-          alt={props.item.name}
+          alt={props.item.username}
           src={
             "https://raw.githubusercontent.com/A-jha/DETS-DB/master/img/alumni3.JPG"
           }
           sx={{ marginRight: "10px" }}
         ></Avatar>
         <Typography variant="h5" textAlign={"center"} fontWeight={900}>
-          {props.item.name}
+          {props.item.username}
         </Typography>
       </div>
       <p>{props.item.feedback}</p>
     </Paper>
   );
 }
+
+export async function getStaticProps() {
+  const client = await MongoClient.connect(
+    //this is an api route so code will never come on the client side
+    "mongodb+srv://avinash:detsConnect@cluster0.ctscs.mongodb.net/detsDB?retryWrites=true&w=majority"
+  );
+  const db = client.db();
+  const feedbackCollection = db.collection("Feedback");
+  const feedbacks = await feedbackCollection.find().toArray();
+  //console.log(notices);
+  client.close();
+  return {
+    props: {
+      feedbacks: feedbacks.map((feedback) => ({
+        username: feedback.username,
+        feedback: feedback.feedback,
+        id: feedback._id.toString(),
+      })),
+    },
+    revalidate: 1,
+  };
+}
+
 export default Feedback;

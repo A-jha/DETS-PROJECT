@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  letter-spacing: 2px;
+}
+.subContainer {
+  max-width: 80%;
+  background: white;
+  padding: 5px 20px 20px 5px;
+  border-radius: 10px;
+  box-shadow: inset 2px 1px 5px 1px black;
+}
+.header {
+  padding: 20px 20px 0 20px;
+}
+.ul {
+  margin: 0;
+
+  font-size: 1.3rem;
+  padding-top: 20px;
+}
+.ul li {
+}
+.ul a {
+}
