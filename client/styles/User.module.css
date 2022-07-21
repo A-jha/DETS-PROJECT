@@ -1,0 +1,116 @@
+.container {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.profileHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: cornflowerblue; */
+  border-radius: 10px;
+  margin: 10px;
+  padding-top: 10px;
+  background-image: linear-gradient(cornflowerblue, rgb(94, 94, 174));
+}
+.full {
+  flex: 1;
+}
+.avatar {
+}
+.personalDetails {
+}
+.socialLinks {
+  background: wheat;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.detailsContainer {
+  background-color: aquamarine;
+  padding: 10px;
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.about {
+  margin: 5px;
+  color: black;
+  border-radius: 5px;
+  background-color: azure;
+  padding: 5px;
+}
+.skills {
+  margin: 5px;
+  padding: 5px;
+  background-color: azure;
+  display: flex;
+  border-radius: 5px;
+}
+.projectContainer {
+  color: black;
+  display: flex;
+  flex-wrap: wrap !important;
+  background-color: cadetblue;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  justify-content: center;
+}
+.project {
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  margin: 5px;
+}
+.codeLink {
+  font-weight: 600;
+}
+.hostedLink {
+  font-weight: 800;
+  padding: 5px;
+  margin: 5px;
+}
+.certificationContainer {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: teal;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  justify-content: center;
+}
+.certificate {
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  margin: 5px;
+}
+.dates {
+  font-weight: 700;
+}
+.linksToVerify {
+  font-weight: 600;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column !important;
+  margin-bottom: 20px;
+}
+.bottomBar {
+  width: 300px !important;
+  height: 10px;
+  background-color: #ecae27;
+  color: wheat;
+}
+@media screen and (min-width: 600px) {
+  .profileHeader {
+  }
+}

@@ -1,5 +1,13 @@
 .main {
-  background-color: #051524;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main a {
+  padding: 10px;
+  font-weight: 700;
+  background-color: aliceblue;
 }
 .img {
   display: flex;
@@ -11,6 +19,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+}
+.topText {
+  align-self: center;
+  padding: 1rem 1.3rem;
+  color: aliceblue;
+  font-size: 1.2rem;
+}
+.CustomCarousel {
+  align-self: center;
 }
 .quickLinks {
   display: flex;
@@ -33,30 +50,20 @@
   align-items: center;
   flex-wrap: wrap;
 }
-
-.hodImageContainer {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  align-items: center;
-}
-.hodImage {
-  border-radius: 5px;
-}
-.hodInfo {
+.bottomBar {
+  width: 200px !important;
+  height: 10px;
+  background-color: #ecae27;
   color: wheat;
-  flex-direction: column;
+  text-align: center;
+  margin: 0 auto 1rem auto;
+}
+.studentCard {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  text-align: center;
 }
-.hodEmailButton {
-  margin: 10px;
-}
-.hodEmailButton a {
-  text-decoration: none;
-  color: aliceblue;
+.subHeading {
+  padding: 10px;
 }

@@ -1,28 +1,47 @@
 .container {
+  overflow: hidden !important;
+  min-width: 100vw;
+}
+
+.temp {
+  padding: 2rem;
+  min-width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  letter-spacing: 2px;
 }
-.subContainer {
-  max-width: 80%;
-  background: white;
-  padding: 5px 20px 20px 5px;
-  border-radius: 10px;
-  box-shadow: inset 2px 1px 5px 1px black;
+.list {
+  margin-top: 10px;
+  margin: 10px;
 }
-.header {
-  padding: 20px 20px 0 20px;
-}
-.ul {
-  margin: 0;
 
-  font-size: 1.3rem;
-  padding-top: 20px;
+.topList {
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  background-color: cadetblue;
+
+  border: 2px solid wheat;
 }
-.ul li {
+.topList a {
+  color: antiquewhite;
+  font-weight: 800;
 }
-.ul a {
+.inList {
+  list-style: none;
+  display: flex;
+}
+@media screen and (max-width: 800px) {
+  .inList {
+    display: list-item;
+  }
+}
+.inList li {
+  padding: 5px;
+  list-style: none;
+}
+.inList a {
+  text-decoration: underline;
+  color: aliceblue;
+  padding: 5px;
+  font-weight: 400;
 }

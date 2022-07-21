@@ -1,56 +1,63 @@
+import { Grid, Box, Typography, Button } from "@mui/material";
+import { useRouter } from "next/router";
 import React from "react";
 import Layout from "../../components/layout/Layout";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
-import classes from "./Index.module.css";
-import Link from "next/link";
-const Auth = () => {
+import classes from "../../styles/Auth.module.css";
+export default function Index() {
+  const router = useRouter();
+  const handleStudentClick = () => {
+    router.push("/auth/student/login/");
+  };
+  const handleAdminClick = () => {
+    router.push("/auth/admin/login");
+  };
   return (
     <Layout>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6} className={classes.admin}>
-          <Card
-            sx={{ padding: "20px", margin: "20px" }}
-            className={classes.userCard}
-          >
-            <Typography variant="h4">For Officials</Typography>
-            <Typography variant="body1"></Typography>
-            <Link href="auth/signup">
-              <Button variant="contained" color="primary" sx={{ margin: 1 }}>
-                Signup
-              </Button>
-            </Link>
-            <Link href="auth/login">
-              <Button variant="outlined" color="secondary">
-                Login
-              </Button>
-            </Link>
-          </Card>
+      <Grid
+        container
+        spacing={1}
+        flex
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Grid
+          item
+          xs={12}
+          md={5}
+          sx={{ backgroundColor: "white", margin: "1rem" }}
+        >
+          <Box className={classes.heading}>
+            <Typography align="center" variant="h4">
+              Administration Login
+            </Typography>
+            <div className={classes.bottomBar}></div>
+          </Box>
+
+          <Box className={classes.signupButton}>
+            <Button variant="outlined" fullWidth onClick={handleAdminClick}>
+              Signup & deliver
+            </Button>
+          </Box>
         </Grid>
-        <Grid item xs={12} md={6} className={classes.user}>
-          <Card
-            sx={{ padding: "20px", margin: "20px" }}
-            className={classes.userCard}
-          >
-            <Typography variant="h4">For Students</Typography>
-            <Typography variant="body1"></Typography>
-            <Link href="auth/signup">
-              <Button variant="contained" color="primary" sx={{ margin: 1 }}>
-                Signup
-              </Button>
-            </Link>
-            <Link href="auth/login">
-              <Button variant="outlined" color="secondary">
-                Login
-              </Button>
-            </Link>
-          </Card>
+        <Grid
+          item
+          xs={12}
+          md={5}
+          sx={{ backgroundColor: "white", margin: "1rem" }}
+        >
+          <Box className={classes.heading}>
+            <Typography align="center" variant="h4">
+              Student Login
+            </Typography>
+            <div className={classes.bottomBar}></div>
+          </Box>
+          <Box className={classes.signupButton}>
+            <Button onClick={handleStudentClick} fullWidth variant="outlined">
+              Signup & enjoy
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </Layout>
   );
-};
-
-export default Auth;
+}

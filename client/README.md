@@ -30,3 +30,5 @@ Raja Biswas
 <h2 align="center"><a href="https://github.com/avinashsharma">
 Avinash Sharma
 </a></h2>
+
+To Restart the mongo : sudo service mongod start

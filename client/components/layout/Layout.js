@@ -1,10 +1,11 @@
-import * as React from "react";
+import React, { useContext, useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import { Menu, MenuItem } from "@mui/material";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -25,14 +26,17 @@ import SitemapIcon from "@mui/icons-material/LineAxis";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import Feedback from "@mui/icons-material/Feedback";
 import Footer from "./Footer";
-import Link from "next/link";
-import classes from "./Layout.module.css";
+import NextLink from "next/link";
+import classes from "../../styles/Layout.module.css";
 import Head from "next/head";
 import HomeIcon from "@mui/icons-material/Home";
 import Questions from "@mui/icons-material/QuestionAnswer";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import PersonIcon from "@mui/icons-material/Person";
 import { useRouter } from "next/router";
+import { VerifiedUserSharp } from "@mui/icons-material";
+import { Store } from "../../utils/Store";
+import { Link } from "@mui/material";
+import dynamic from "next/dynamic";
+import Cookies from "js-cookie";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -80,10 +84,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function Header({ children, title }) {
+function Header({ children, title }) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const [user, setUser] = React.useState("login");
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -96,7 +99,22 @@ export default function Header({ children, title }) {
   const handleClick = () => {
     router.push("/auth/login");
   };
-
+  const { state, dispatch } = useContext(Store);
+  const { userInfo } = state;
+  const [anchorEl, setAnchorEl] = useState(null);
+  const loginClickHandler = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const loginMenuCloseHandler = () => {
+    setAnchorEl(null);
+  };
+  const logoutClickHandler = () => {
+    setAnchorEl(null);
+    dispatch({ type: "USER_LOGOUT" });
+    Cookies.remove("userInfo");
+    Cookies.remove("cartItems");
+    router.push("/");
+  };
   return (
     <>
       <Head>
@@ -117,10 +135,11 @@ export default function Header({ children, title }) {
             >
               <MenuIcon />
             </IconButton>
-            <Link href={"/"}>
-              <Home sx={{ textAlign: "center", cursor: "pointer" }} />
-            </Link>
-
+            <NextLink href={"/"} passHref>
+              <Link>
+                <Home sx={{ textAlign: "center", cursor: "pointer" }} />
+              </Link>
+            </NextLink>
             <Typography
               variant="h6"
               noWrap
@@ -129,13 +148,36 @@ export default function Header({ children, title }) {
             >
               DETS CONNECT
             </Typography>
-            <Button
-              sx={{ color: "white" }}
-              variant="contained"
-              onClick={handleClick}
-            >
-              {user}
-            </Button>
+
+            {userInfo ? (
+              <>
+                <Button
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={loginClickHandler}
+                  className={classes.navbarButton}
+                >
+                  {userInfo.name}
+                </Button>
+                <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={loginMenuCloseHandler}
+                >
+                  <MenuItem onClick={loginMenuCloseHandler}>Profile</MenuItem>
+                  <MenuItem onClick={loginMenuCloseHandler}>
+                    My account
+                  </MenuItem>
+                  <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
+                </Menu>
+              </>
+            ) : (
+              <NextLink href="/auth" passHref>
+                <Link>Login</Link>
+              </NextLink>
+            )}
           </Toolbar>
         </AppBar>
         <Drawer
@@ -166,23 +208,27 @@ export default function Header({ children, title }) {
           <Divider />
           <List>
             {links.map((link, index) => (
-              <Link href={link.path} key={index}>
-                <ListItem button>
-                  <ListItemIcon>{link.icon}</ListItemIcon>
-                  <ListItemText primary={link.title} />
-                </ListItem>
-              </Link>
+              <NextLink href={link.path} key={index} passHref>
+                <Link>
+                  <ListItem button>
+                    <ListItemIcon>{link.icon}</ListItemIcon>
+                    <ListItemText primary={link.title} />
+                  </ListItem>
+                </Link>
+              </NextLink>
             ))}
           </List>
           <Divider />
           <List>
             {others.map((link, index) => (
-              <Link href={link.path} key={index}>
-                <ListItem button>
-                  <ListItemIcon>{link.icon}</ListItemIcon>
-                  <ListItemText primary={link.title} />
-                </ListItem>
-              </Link>
+              <NextLink href={link.path} key={index} passHref>
+                <Link>
+                  <ListItem button>
+                    <ListItemIcon>{link.icon}</ListItemIcon>
+                    <ListItemText primary={link.title} />
+                  </ListItem>
+                </Link>
+              </NextLink>
             ))}
           </List>
         </Drawer>
@@ -198,15 +244,15 @@ export default function Header({ children, title }) {
 
 const links = [
   { title: "Home", path: "/", icon: <HomeIcon /> },
-  { title: "Notice", path: "/notice", icon: <NotificationsIcon /> },
+  { title: "Notice", path: "/info/notice", icon: <NotificationsIcon /> },
   { title: "Alumni", path: "/alumni", icon: <SchoolIcon /> },
-  { title: "Gallery", path: "/gallery", icon: <CollectionsIcon /> },
+  { title: "Events", path: "/events", icon: <CollectionsIcon /> },
 ];
 
 const others = [
-  { title: "Events", path: "/events", icon: <CelebrationIcon /> },
-  { title: "Profile", path: "/events", icon: <PersonIcon /> },
-  { title: "FAQS", path: "/faqs", icon: <Questions /> },
-  { title: "Feedback", path: "/feedback", icon: <Feedback /> },
-  { title: "Sitemap", path: "/sitemap", icon: <SitemapIcon /> },
+  { title: "FAQS", path: "/info/faqs", icon: <Questions /> },
+  { title: "Feedback", path: "/info/feedback", icon: <Feedback /> },
+  { title: "Sitemap", path: "/info/sitemap", icon: <SitemapIcon /> },
 ];
+
+export default dynamic(() => Promise.resolve(Header), { ssr: false });

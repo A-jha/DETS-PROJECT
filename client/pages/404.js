@@ -5,7 +5,10 @@ import classes from "../styles/Error.module.css";
 import Grid from "@mui/material/Grid";
 import Alert from "@mui/material/Alert";
 import Image from "next/image";
+import { Button } from "@mui/material";
+import { useRouter } from "next/router";
 const hello = () => {
+  const router = useRouter();
   return (
     <Layout>
       <Grid container className={classes.main}>
@@ -18,14 +21,10 @@ const hello = () => {
           </Typography>
         </Grid> */}
         <Grid item xs={12} className={classes.imgContainer}>
-          <Image
-            src="https://raw.githubusercontent.com/A-jha/DETS-DB/master/img/404.png"
-            alt="404-img"
-            layout="fixed"
-            width="600"
-            height="500"
-            className={classes.errorImg}
-          />
+          <Typography variant="h3" color={"white"}>
+            404: Not Found :(
+          </Typography>
+          <Button onClick={() => router.push("/")}>Home Page</Button>
         </Grid>
       </Grid>
     </Layout>

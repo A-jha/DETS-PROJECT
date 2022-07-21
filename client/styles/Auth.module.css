@@ -1,0 +1,19 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bottomBar {
+  width: 200px !important;
+  height: 10px;
+  background-color: #ecae27;
+  color: wheat;
+  margin-bottom: 1rem;
+}
+.signupButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+}

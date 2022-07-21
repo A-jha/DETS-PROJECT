@@ -1,0 +1,39 @@
+.footer {
+  color: white;
+  background-color: rgb(0, 2, 9);
+}
+.footerContainer {
+}
+.socialIcons {
+  display: flex;
+  justify-content: center;
+}
+.a {
+  text-decoration: none;
+  color: rgb(39, 29, 29);
+  margin: 10px;
+}
+.footerLinks {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center;
+  align-items: center;
+}
+.links {
+  text-align: center;
+  background-color: #c1d1e1;
+  margin: 5px;
+  width: 80%;
+  padding: 5px;
+}
+
+.linkText {
+  background-color: rgb(40, 172, 177);
+  color: antiquewhite;
+  font-size: 1.2rem;
+
+  border-radius: 5px;
+}
+.linkText:hover {
+  box-shadow: 1px 1px 1px 1px black;
+}

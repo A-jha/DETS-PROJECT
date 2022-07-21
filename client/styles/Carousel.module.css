@@ -1,0 +1,23 @@
+.carouselCont {
+  display: flex;
+  margin: 20px;
+  align-self: center;
+}
+.details {
+  padding: 10px;
+  flex: 1;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 2;
+  padding: 1rem;
+}
+.image img {
+  height: 100%;
+  width: 100%;
+
+  object-fit: contain;
+}

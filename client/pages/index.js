@@ -1,11 +1,12 @@
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import { Paper, Grid, Card, Button, Typography } from "@mui/material";
 import Layout from "../components/layout/Layout";
 import Image from "next/image";
 import classes from "../styles/Home.module.css";
-import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
 import Link from "next/link";
+import CustomCarousel from "../components/CustomCarousel";
+import MovingLinks from "../components/MovingLinks";
+import { display } from "@mui/system";
+import StudentCard from "../components/StudentCard";
 export default function Home() {
   const handleMailClick = () => {};
   return (
@@ -23,88 +24,147 @@ export default function Home() {
               Welcome To Department Of Engineering And Technological Studies
             </Typography>
           </Grid>
-          <Grid item xs={12} className={classes.img}>
-            <Image
-              src={
-                "https://raw.githubusercontent.com/A-jha/DETS-DB/master/img/detslogo1.jpg"
-              }
-              atl="logo-1"
-              width={300}
-              height={300}
-              priority
-            />
+          <Grid xs={12} md={5} className={classes.CustomCarousel}>
+            <CustomCarousel items={data} />
           </Grid>
-          <Grid item xs={12} className={classes.text}>
-            <Typography sx={{ color: "white" }} px={8} py={2}>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-              velit, sed quia non numquam eius modi tempora incidunt ut labore
-              et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-              veniam, quis nostrum exercitationem ullam corporis suscipit
-              laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-              vel eum iure reprehenderit qui in ea voluptate velit esse quam
-              nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-              voluptas nulla pariatur?
+          <Grid item xs={12} md={5} className={classes.topText}>
+            Let's now say we don't like the default graphite background of the
+            buttons, nor do we like the fact that it is round. We also want to
+            place them under the main Carousel, and finally remove the arrows
+            and have "next" and "prev" accordingly to each button. A very
+            important note here, is that any styles specified by the user DO NOT
+            OVERRIDE THE EXISTING STYLES. They work in tandem with them. That
+            means, that if you want to change, or get rid of a CSS attribute you
+            will have to override it or unset it. The Default styles are given
+            at the end of this section, and are part of the code.
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              display: "flex",
+              margin: "1rem",
+            }}
+          >
+            <div style={{ maxWidth: "80%" }}>
+              <MovingLinks links={links} />
+            </div>
+          </Grid>
+          <Grid item xs={12} className={classes.subHeading}>
+            <Typography color="white" textAlign="center" variant="h4">
+              Our Alumni
             </Typography>
+            <div className={classes.bottomBar}></div>
           </Grid>
-          <Grid item xs={12} className={classes.quickLinks}>
-            <Button variant="outlined" color="secondary">
-              <Link href="/notice">Notice</Link>
-            </Button>
-            <Button variant="outlined" color="secondary">
-              <Link href="/feedback">FeedBack</Link>
-            </Button>
-            <Button variant="outlined" color="secondary">
-              <Link href="/alumni">Our alumni</Link>
-            </Button>
-            <Button variant="outlined" color="secondary">
-              <Link href="/events">Events</Link>
+          <Grid item xs={12} className={classes.studentCard}>
+            {students.map((student, index) => {
+              return <StudentCard key={index} student={student} />;
+            })}
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginBottom: "1rem",
+            }}
+          >
+            <Button variant="outlined" color="info">
+              View Alumni
             </Button>
           </Grid>
-          <Grid item xs={12}>
-            <Typography sx={{ color: "white" }} align="center" variant="h4">
-              Head Of Department
+          <Grid item xs={12} className={classes.subHeading}>
+            <Typography color="white" textAlign="center" variant="h4">
+              Events & News
             </Typography>
+            <div className={classes.bottomBar}></div>
           </Grid>
-          <Grid item xs={12} className={classes.hodImageContainer}>
-            <Image
-              src={
-                "https://raw.githubusercontent.com/A-jha/DETS-DB/master/img/REX_6078-min.jpg"
-              }
-              width={500}
-              height={400}
-              className={classes.hodImage}
-            />
-          </Grid>
-          <Grid item xs={12} className={classes.hodInfo}>
-            <Typography variant="h6">Prof. Srinka Basu</Typography>
-            <Typography>
-              Follow 3 P in Your Life, first Positivity, Second Polite Attitude,
-              Third Punctuality
-            </Typography>
-            <Button
-              variant="outlined"
-              color="success"
-              className={classes.hodEmailButton}
-            >
-              <Link href={"mailto:avvinashjha@gmail.com"}>Email</Link>
-            </Button>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="h4" align="center" color="white"></Typography>
-          </Grid>
-          <Grid item className={classes.cards} m={2}>
-            <Card sx={{ width: "300px", height: "300px", margin: "8px" }}>
-              <Typography>Hello</Typography>
-            </Card>
-          </Grid>
+          <Grid item></Grid>
         </Grid>
       </Layout>
     </div>
   );
 }
+
+const data = [
+  {
+    title: "Avinash",
+    desc: "Welcome To Department Of Engineering And Technological Studies",
+    img: "https://wallpaperaccess.com/full/51370.jpg",
+  },
+  {
+    title: "Hritik",
+    desc: "Welcome To Department Of Engineering And Technological Studies",
+    img: "https://wallpaperaccess.com/full/51373.jpg",
+  },
+];
+
+const links = [
+  {
+    title: "Sample Link for Admission Process",
+    url: "www.google.com",
+  },
+  {
+    title: "Sample Link for Library Process",
+    url: "www.lol.com",
+  },
+  {
+    title: "Sample Link for Admission Process",
+    url: "www.google.com",
+  },
+  {
+    title: "Sample Link for Admission Process",
+    url: "www.google.com",
+  },
+];
+
+const students = [
+  {
+    name: "Shubham Singh",
+    slug: "shubham-singh",
+    yearIn: 2017,
+    yearOut: 2021,
+    about: "Keep calm and study without worries",
+    job: [
+      {
+        title: "SDE",
+        companyName: "Amazon",
+        joining: "18/07/2022",
+      },
+    ],
+  },
+
+  {
+    name: "Shubham Singh",
+    slug: "shubham-singh",
+    yearIn: 2017,
+    yearOut: 2021,
+    about: "Keep calm and study without worries",
+    job: [
+      {
+        title: "SDE",
+        companyName: "Amazon",
+        joining: "18/07/2022",
+      },
+    ],
+  },
+
+  {
+    name: "Shubham Singh",
+    slug: "shubham-singh",
+    yearIn: 2017,
+    yearOut: 2021,
+    about: "Keep calm and study without worries",
+    job: [
+      {
+        title: "SDE",
+        companyName: "Amazon",
+        joining: "18/07/2022",
+      },
+    ],
+  },
+];

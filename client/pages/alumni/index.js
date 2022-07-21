@@ -1,12 +1,59 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
+import Student from "../../models/Student";
+import db from "../../utils/db";
 import Layout from "../../components/layout/Layout";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { Paper, Button } from "@mui/material";
+import { useRouter } from "next/router";
+import {
+  Paper,
+  Button,
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+} from "@mui/material";
 import Image from "next/image";
-import Carousel from "react-material-ui-carousel";
+import { Store } from "../../utils/Store";
 import classes from "../../styles/Alumni.module.css";
-const Alumni = () => {
+const Alumni = (props) => {
+  const { state, dispatch } = useContext(Store);
+  const router = useRouter();
+  const { students } = props;
+  const currentYear = new Date().getFullYear().toString();
+  const fourthYear = students.filter(
+    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 0
+  );
+  const thirdYear = students.filter(
+    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 1
+  );
+  const secondYear = students.filter(
+    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 2
+  );
+  const firstYear = students.filter(
+    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 3
+  );
+  const passOut = students.filter(
+    (student) => parseInt(currentYear) - parseInt(student.yearIn) > 4
+  );
+  const handleClick = async (year) => {
+    switch (year) {
+      case 1:
+        router.push("/alumni/firstyear");
+        return;
+      case 2:
+        router.push("/alumni/secondyear");
+        return;
+      case 3:
+        router.push("/alumni/thirdyear");
+        return;
+      case 4:
+        router.push("/alumni/fourthyear");
+        return;
+      default:
+        router.push("/alumni/passout");
+    }
+  };
   return (
     <Layout title="Alumni">
       <Grid container className={classes.topCont} py={2}>
@@ -40,41 +87,25 @@ const Alumni = () => {
             is worth noticing.{" "}
           </Typography>
         </Grid>
-        <Grid item xs={12} className={classes.carouselContainer}>
-          <Typography align="center" variant="h3" color="white">
-            Feedbacks
+        <Grid item xs={12} md={12} className={classes.subHeading}>
+          <Typography variant="h3" color="white" textAlign={"center"}>
+            Our Alumni
           </Typography>
-          <Carousel cycleNavigation swipe>
-            {carouselItems.map((item, i) => (
-              <Item key={i} item={item} />
-            ))}
-          </Carousel>
+          <div className={classes.bottomBar}></div>
         </Grid>
       </Grid>
     </Layout>
   );
 };
-
-var carouselItems = [
-  {
-    name: "Avinash Sharma",
-    feedback:
-      "Everything is looking good but something is missing and celebrate and reunite with each other guys. Department of engineering and technological studies. Har Har Mahadev ",
-  },
-  {
-    name: "Hritik Raj",
-    feedback:
-      "We are having some good and hard time together in this time period we all have to come together and show the unity of Department of engineering and technological studies. Har Har Mahadev ",
-  },
-];
-function Item(props) {
-  return (
-    <Paper>
-      <h2>{props.item.name}</h2>
-      <p>{props.item.feedback}</p>
-
-      <Button className="CheckButton">Check it out!</Button>
-    </Paper>
-  );
+export async function getServerSideProps() {
+  await db.connect();
+  const students = await Student.find({}).lean();
+  await db.disconnect();
+  return {
+    props: {
+      students: JSON.parse(JSON.stringify(students)),
+    },
+  };
 }
+
 export default Alumni;

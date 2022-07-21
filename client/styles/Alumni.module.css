@@ -5,6 +5,21 @@
   width: 100%;
   border-radius: 10px;
 }
+.subHeading {
+  width: 100%;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+}
+.bottomBar {
+  text-align: center;
+  width: 300px !important;
+  height: 10px;
+  background-color: #ecae27;
+  color: wheat;
+}
 .topCard {
   display: flex;
   align-items: center;
@@ -15,6 +30,21 @@
   color: #fff;
   padding: 10px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.current {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.yearCard {
+  margin: 1rem;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

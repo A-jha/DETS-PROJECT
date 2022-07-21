@@ -1,0 +1,16 @@
+.loginCont {
+  padding-top: 2rem;
+}
+.loginForm {
+  background: white;
+  margin: 0 auto;
+  max-width: 800px;
+  margin-bottom: 1rem;
+}
+.bottomBar {
+  width: 150px !important;
+  height: 10px;
+  background-color: #ecae27;
+  color: wheat;
+  text-align: center;
+}
