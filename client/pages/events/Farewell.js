@@ -1,9 +1,11 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import Layout from "../../components/layout/Layout";
+import classes from "../../styles/Events.module.css";
 const Farewell = () => {
   return (
     <Layout>
-      <div>
+      <Grid container>
         “अंतः अस्तत प्रारंभः -. The End is the Beginning.” • Alvida also termed
         as “FAREWELL”. Alvida is basically a get to gather kind of celebration
         for the seniors who will be soon stepping out of that particular
@@ -16,7 +18,7 @@ const Farewell = () => {
         motivational speeches or by felicitating them. Later the final year
         students were asked to give their opinions about the institution and the
         staffs.{" "}
-      </div>
+      </Grid>
     </Layout>
   );
 };

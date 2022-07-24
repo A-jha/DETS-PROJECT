@@ -89,7 +89,7 @@ export default function Index() {
           </List>
           <Typography textAlign="center" gutterBottom>
             If you are not registered{" "}
-            <NextLink href="/auth/student/signup" pass>
+            <NextLink href="/auth/student/signup" passHref>
               <Link>Register</Link>
             </NextLink>
           </Typography>

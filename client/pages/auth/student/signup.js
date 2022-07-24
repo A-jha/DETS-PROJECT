@@ -10,6 +10,7 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
+  Link,
 } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
@@ -17,6 +18,7 @@ import Layout from "../../../components/layout/Layout";
 import classes from "../../../styles/Login.module.css";
 import { Store } from "../../../utils/Store";
 import axios from "axios";
+import NextLink from "next/link";
 import Cookies from "js-cookie";
 import { DateRange } from "@mui/icons-material";
 export default function Index() {
@@ -158,6 +160,12 @@ export default function Index() {
               </Button>
             </ListItem>
           </List>
+          <Typography textAlign="center" gutterBottom>
+            If you are already registered{" "}
+            <NextLink href="/auth/student/login" passHref>
+              <Link>Login</Link>
+            </NextLink>
+          </Typography>
         </form>
       </Box>
     </Layout>
