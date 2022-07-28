@@ -11,6 +11,9 @@ import {
   Card,
   CardHeader,
   Link,
+  Stepper,
+  Step,
+  StepLabel,
 } from "@mui/material";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -34,7 +37,7 @@ const UserProfile = (props) => {
           </Typography>
           <div className={classes.bottomBar}></div>
         </Grid>
-        <Grid item md={4} xs={12} className={classes.profileHeader}>
+        <Grid item md={4} xs={11} className={classes.profileHeader}>
           <Typography
             textAlign={"center"}
             fontWeight={800}
@@ -63,12 +66,18 @@ const UserProfile = (props) => {
             </Typography>
           </Box>
           <Box className={classes.socialLinks}>
-            <NextLink href={student.social[0].link} passHref>
+            <NextLink
+              href={student.social[0].link ? student.social[0].link : ""}
+              passHref
+            >
               <Link sx={{ padding: "10px" }} target="_blank">
                 <GitHub sx={{ color: "black", fontSize: "3rem" }} />
               </Link>
             </NextLink>
-            <NextLink href={student.social[1].link} passHref>
+            <NextLink
+              href={student.social[1].link ? student.social[1].link : "#"}
+              passHref
+            >
               <Link sx={{ padding: "10px" }} target="_blank">
                 <LinkedIn sx={{ color: "blue", fontSize: "3rem" }} />
               </Link>
@@ -84,29 +93,12 @@ const UserProfile = (props) => {
           <Box className={classes.about}>
             <Typography>{student.about}</Typography>
           </Box>
-          <Box className={classes.skills}>
-            {student.skills.map((skill, index) => {
-              return <Typography key={index}>{skill.name}, </Typography>;
-            })}
-          </Box>
-          <Box className={classes.projectContainer}>
-            {student.projects.map((project, index) => {
-              return (
-                <Card key={index} className={classes.project}>
-                  <CardHeader title={project.name} />
-                  <Box className={classes.codeLink}>
-                    <NextLink href={project.code} passHref>
-                      <Link target="_blank">View Code</Link>
-                    </NextLink>
-                  </Box>
-                  <Box className={classes.hostedLink}>
-                    <NextLink href={project.hosted} passHref>
-                      <Link target="_blank">View Project</Link>
-                    </NextLink>
-                  </Box>
-                </Card>
-              );
-            })}
+          <Box>
+            <Card>
+              {student.jobs.map((job, index) => {
+                return <Typography>{job.title} jnkj</Typography>;
+              })}
+            </Card>
           </Box>
         </Grid>
       </Grid>

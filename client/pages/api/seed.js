@@ -8,7 +8,7 @@ const handler = nextConnect();
 handler.get(async (req, res) => {
   await db.connect();
   await Student.deleteMany(); // delete all records
-  // await Admin.insertMany(data.admin);
+  await Student.insertMany(data.students);
   await db.disconnect();
   res.send({ message: "Seeded Successfully" });
 });

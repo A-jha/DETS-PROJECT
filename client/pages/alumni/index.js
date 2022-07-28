@@ -12,47 +12,26 @@ import {
   CardHeader,
   CardContent,
   CardActions,
+  TextField,
 } from "@mui/material";
 import Image from "next/image";
 import { Store } from "../../utils/Store";
 import classes from "../../styles/Alumni.module.css";
+import StudentCard from "../../components/StudentCard";
+import axios from "axios";
 const Alumni = (props) => {
-  const { state, dispatch } = useContext(Store);
   const router = useRouter();
   const { students } = props;
-  const currentYear = new Date().getFullYear().toString();
-  const fourthYear = students.filter(
-    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 0
-  );
-  const thirdYear = students.filter(
-    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 1
-  );
-  const secondYear = students.filter(
-    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 2
-  );
-  const firstYear = students.filter(
-    (student) => parseInt(student.yearOut) - parseInt(currentYear) === 3
-  );
-  const passOut = students.filter(
-    (student) => parseInt(currentYear) - parseInt(student.yearIn) > 4
-  );
-  const handleClick = async (year) => {
-    switch (year) {
-      case 1:
-        router.push("/alumni/firstyear");
-        return;
-      case 2:
-        router.push("/alumni/secondyear");
-        return;
-      case 3:
-        router.push("/alumni/thirdyear");
-        return;
-      case 4:
-        router.push("/alumni/fourthyear");
-        return;
-      default:
-        router.push("/alumni/passout");
-    }
+  const [studentList, setStudentList] = useState(students);
+  const [searchName, setSearchName] = useState("");
+  const [searchCompany, setSearchCompany] = useState("");
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    console.log(searchName, searchCompany);
+    const { data } = await axios.get("/api/alumni/search", {
+      name: searchName,
+      company: searchCompany,
+    });
   };
   return (
     <Layout title="Alumni">
@@ -92,6 +71,42 @@ const Alumni = (props) => {
             Our Alumni
           </Typography>
           <div className={classes.bottomBar}></div>
+        </Grid>
+        <Grid item xs={12} my={3} className={classes.searchBarCont}>
+          <div className={classes.searchBar}>
+            <TextField
+              value={searchCompany}
+              onChange={(e) => setSearchCompany(e.target.value)}
+              variant="filled"
+              placeholder="company"
+              className={classes.searchCompany}
+            ></TextField>
+
+            <TextField
+              value={searchName}
+              onChange={(e) => setSearchName(e.target.value)}
+              variant="filled"
+              placeholder="name"
+              className={classes.searchName}
+            ></TextField>
+            <Button
+              className={classes.searchButton}
+              onClick={handleSearch}
+              variant="contained"
+            >
+              Search
+            </Button>
+          </div>
+        </Grid>
+
+        <Grid item xs={12} className={classes.studentListCont}>
+          <div className={classes.studentList}>
+            {studentList.map((student) => {
+              return (
+                <StudentCard key={student._id} student={student}></StudentCard>
+              );
+            })}
+          </div>
         </Grid>
       </Grid>
     </Layout>

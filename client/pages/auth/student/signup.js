@@ -45,16 +45,19 @@ export default function Index() {
       const { data } = await axios.post("/api/alumni/signup", {
         name,
         email,
+        password,
         stream,
         yearIn,
         yearOut,
-        password,
+
         confPassword,
       });
       console.log(name, email, stream, yearIn, yearOut, password, confPassword);
+      router.push("/");
     } catch (err) {
       console.log(email, password, err);
-      alert(err.response.data ? err.response.data.message : err.message);
+      alert(err.response.data ? err.response.message : err.message);
+      router.push("/");
     }
   };
 

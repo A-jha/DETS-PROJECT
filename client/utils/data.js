@@ -4,35 +4,13 @@ const data = {
     {
       isAdmin: false,
       name: "Shubham Singh",
-      email: "xxx9@gmail.com",
+      email: "xxx1@gmail.com",
       password: hashSync("123456789", 5),
-      about: "Simply Aj",
+      about: "Hi I am Shubham Singh",
       stream: "IT",
       slug: "shubham-singh",
       yearIn: "2017",
       yearOut: "2021",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
       social: [
         {
           name: "Github",
@@ -43,67 +21,83 @@ const data = {
           link: "https://www.linkedin.com/in/avvinashjha/",
         },
       ],
-      certification: [
+      company: [
         {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2017",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
+          companyName: "ISC, Bangalore",
+          title: "student",
+          joining: "1/07/2022",
         },
       ],
       gender: "male",
     },
     {
       isAdmin: false,
-      name: "Avinash Kumar Jha",
-      email: "xxx8@gmail.com",
+      name: "Avik Samanta",
+      email: "xxx9@gmail.com",
       password: hashSync("123456789", 5),
-      about: "Simply Aj",
+      about: "Hi I am Avik Samanta",
       stream: "IT",
-      slug: "avinash-kumar-jha",
+      slug: "avik-samanta",
+      yearIn: "2016",
+      yearOut: "2020",
+      social: [
+        {
+          name: "Github",
+          link: "https://github.com/A-Jha",
+        },
+        {
+          name: "linkedIn",
+          link: "https://www.linkedin.com/in/avvinashjha/",
+        },
+      ],
+      company: [
+        {
+          companyName: "Cisco",
+          title: "Software Developer",
+          joining: "1/07/2022",
+        },
+      ],
+      gender: "male",
+    },
+    {
+      isAdmin: false,
+      name: "Debashish Roy",
+      email: "roy@gmail.com",
+      password: hashSync("123456789", 5),
+      about: "Hi I am Debashish Roy",
+      stream: "IT",
+      slug: "debashish-roy",
+      yearIn: "2016",
+      yearOut: "2020",
+      social: [
+        {
+          name: "Github",
+          link: "https://github.com/A-Jha",
+        },
+        {
+          name: "linkedIn",
+          link: "https://www.linkedin.com/in/avvinashjha/",
+        },
+      ],
+      company: [
+        {
+          companyName: "Relevel",
+          title: "Backend Developer",
+          joining: "1/06/2022",
+        },
+      ],
+      gender: "male",
+    },
+    {
+      isAdmin: false,
+      name: "Avinash Jha",
+      email: "avinashjha@gmail.com",
+      password: hashSync("123456789", 5),
+      about: "Hi I am Avinash Jha",
+      stream: "IT",
+      slug: "avinash-jha",
       yearIn: "2018",
       yearOut: "2022",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
       social: [
         {
           name: "Github",
@@ -114,67 +108,25 @@ const data = {
           link: "https://www.linkedin.com/in/avvinashjha/",
         },
       ],
-      certification: [
+      company: [
         {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
+          companyName: "Media.net",
+          title: "Web Application Developer",
+          joining: "1/08/2022",
         },
       ],
       gender: "male",
     },
     {
       isAdmin: false,
-      name: "Jukta Maitra",
-      about: "Simply Aj",
-      email: "xxx7@gmail.com",
+      name: "Arpita Das",
+      email: "arp9@gmail.com",
       password: hashSync("123456789", 5),
-      stream: "EIE",
-      slug: "jukta-maitra",
+      about: "Hi I am Arpita Das",
+      stream: "IT",
+      slug: "arpita-das",
       yearIn: "2018",
       yearOut: "2022",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
       social: [
         {
           name: "Github",
@@ -185,138 +137,25 @@ const data = {
           link: "https://www.linkedin.com/in/avvinashjha/",
         },
       ],
-      certification: [
+      company: [
         {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
+          companyName: "NIT, Durgapur",
+          title: "M.Tech",
+          joining: "1/08/2022",
         },
       ],
       gender: "male",
     },
     {
       isAdmin: false,
-      name: "Ashish Kumar",
-      about: "Simply Aj",
-      email: "xxx6@gmail.com",
+      name: "Hritik Raj",
+      email: "sam@gmail.com",
       password: hashSync("123456789", 5),
-      stream: "EIE",
-      slug: "ashish-kumar",
-      yearIn: "2019",
-      yearOut: "2023",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
-      social: [
-        {
-          name: "Github",
-          link: "https://github.com/A-Jha",
-        },
-        {
-          name: "linkedIn",
-          link: "https://www.linkedin.com/in/avvinashjha/",
-        },
-      ],
-      certification: [
-        {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-      ],
-      gender: "male",
-    },
-    {
-      isAdmin: false,
-      name: "Sunai Biswas",
-      about: "Simply Aj",
-      email: "xxx5@gmail.com",
-      password: hashSync("123456789", 5),
+      about: "Hi I am Hritik Raj",
       stream: "IT",
-      slug: "sunai-biswas",
-      yearIn: "2019",
-      yearOut: "2023",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
+      slug: "hritik-raj",
+      yearIn: "2018",
+      yearOut: "2022",
       social: [
         {
           name: "Github",
@@ -327,315 +166,11 @@ const data = {
           link: "https://www.linkedin.com/in/avvinashjha/",
         },
       ],
-      certification: [
+      company: [
         {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-      ],
-      gender: "male",
-    },
-    {
-      isAdmin: false,
-      name: "Santanu Rana",
-      about: "Simply Aj",
-      email: "xxx4@gmail.com",
-      password: hashSync("123456789", 5),
-      stream: "IT",
-      slug: "santanu-rana",
-      yearIn: "2020",
-      yearOut: "2024",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
-      social: [
-        {
-          name: "Github",
-          link: "https://github.com/A-Jha",
-        },
-        {
-          name: "linkedIn",
-          link: "https://www.linkedin.com/in/avvinashjha/",
-        },
-      ],
-      certification: [
-        {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-      ],
-      gender: "male",
-    },
-    {
-      isAdmin: false,
-      name: "Sruti Sen",
-      about: "Simply Aj",
-      email: "xxx3@gmail.com",
-      password: hashSync("123456789", 5),
-      stream: "EIE",
-      slug: "sruti-sen",
-      yearIn: "2020",
-      yearOut: "2024",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
-      social: [
-        {
-          name: "Github",
-          link: "https://github.com/A-Jha",
-        },
-        {
-          name: "linkedIn",
-          link: "https://www.linkedin.com/in/avvinashjha/",
-        },
-      ],
-      certification: [
-        {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-      ],
-      gender: "male",
-    },
-    {
-      isAdmin: false,
-      name: "Rishabh Barnwal",
-      about: "Simply Aj",
-      email: "xxx2@gmail.com",
-      password: hashSync("123456789", 5),
-      stream: "IT",
-      slug: "rishabh-barnwal",
-      yearIn: "2021",
-      yearOut: "2025",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
-      social: [
-        {
-          name: "Github",
-          link: "https://github.com/A-Jha",
-        },
-        {
-          name: "linkedIn",
-          link: "https://www.linkedin.com/in/avvinashjha/",
-        },
-      ],
-      certification: [
-        {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-      ],
-      gender: "male",
-    },
-    {
-      isAdmin: false,
-      name: "Cute Riya",
-      about: "Simply Aj",
-      email: "xxx1@gmail.com",
-      password: hashSync("123456789", 5),
-      stream: "EIE",
-      slug: "cute-riya",
-      yearIn: "2021",
-      yearOut: "2025",
-      skills: [
-        {
-          title: "Programming",
-          name: "C++",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Java",
-          rating: 8,
-        },
-        {
-          title: "Front-End",
-          name: "Python",
-          rating: 8,
-        },
-        {
-          title: "Programming",
-          name: "Javascript",
-          rating: 8,
-        },
-      ],
-      social: [
-        {
-          name: "Github",
-          link: "https://github.com/A-Jha",
-        },
-        {
-          name: "linkedIn",
-          link: "https://www.linkedin.com/in/avvinashjha/",
-        },
-      ],
-      certification: [
-        {
-          name: "Core Java",
-          link: "https://github.com/A-Jha",
-          start: "2021",
-          end: "2022",
-        },
-        {
-          name: "Core Python",
-          link: "https://github.com/A-Jha",
-          start: "2020",
-          end: "2021",
-        },
-      ],
-      projects: [
-        {
-          name: "Github Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
-        },
-
-        {
-          name: "Job Search",
-          hosted: "https://github.com/A-Jha",
-          code: "https://github.com/A-Jha",
+          companyName: "Wipro",
+          title: "Project Engineer",
+          joining: "1/08/2022",
         },
       ],
       gender: "male",

@@ -1,0 +1,40 @@
+.topText {
+  padding: 20px;
+}
+.topTextCont {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.topImg {
+  padding: 20px;
+  width: 100%;
+}
+.topImgCont {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.bottomBar {
+  width: 200px;
+  height: 10px;
+  background-color: #ecae27;
+  align-self: center;
+  margin: 0 auto;
+}
+.eventCard {
+  max-width: 400px;
+  margin: 20px;
+}
+.eventCardCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.eventCard a {
+  text-align: center;
+  padding: 15px;
+  font-size: 1.3rem;
+}

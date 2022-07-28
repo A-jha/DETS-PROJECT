@@ -4,7 +4,6 @@ import Student from "../../../models/Student";
 import signToken from "../../../utils/auth";
 import createSlug from "../../../utils/slug";
 import { hashSync } from "bcrypt";
-
 const handler = nextConnect();
 
 handler.post(async (req, res) => {
@@ -20,8 +19,7 @@ handler.post(async (req, res) => {
       stream,
       yearIn,
       yearOut,
-      password,
-      confPassword,
+      password: hashSync(password, 5),
       slug,
     }); // delete all records
     await console.log(student ? "student Found" : "Student Not Found");

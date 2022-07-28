@@ -48,3 +48,41 @@
   justify-content: center;
   align-items: center;
 }
+.searchBarCont {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+}
+.searchName {
+  flex: 2;
+  margin: 10px !important;
+}
+.searchCompany {
+  flex: 2;
+  margin: 10px !important;
+}
+.searchButton {
+  flex: 1;
+}
+.studentListCont {
+  display: flex;
+  justify-content: center;
+}
+.studentList {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

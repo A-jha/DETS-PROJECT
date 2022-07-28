@@ -15,7 +15,7 @@ async function connect() {
     }
     await mongoose.disconnect();
   }
-  const db = await mongoose.connect(process.env.MONGODB_URI, {
+  const db = await mongoose.connect(process.env.MONGODB_URI_PRO, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true,

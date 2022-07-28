@@ -1,8 +1,8 @@
-import { Paper, Grid, Card, Button, Typography } from "@mui/material";
+import { Paper, Grid, Card, Button, Typography, Link } from "@mui/material";
 import Layout from "../components/layout/Layout";
 import Image from "next/image";
 import classes from "../styles/Home.module.css";
-import Link from "next/link";
+import NextLink from "next/link";
 import CustomCarousel from "../components/CustomCarousel";
 import MovingLinks from "../components/MovingLinks";
 import { display } from "@mui/system";
@@ -74,16 +74,11 @@ export default function Home() {
             }}
           >
             <Button variant="outlined" color="info">
-              View Alumni
+              <NextLink href="/alumni/" passHref>
+                <Link>View Alumni</Link>
+              </NextLink>
             </Button>
           </Grid>
-          <Grid item xs={12} className={classes.subHeading}>
-            <Typography color="white" textAlign="center" variant="h4">
-              Events & News
-            </Typography>
-            <div className={classes.bottomBar}></div>
-          </Grid>
-          <Grid item></Grid>
         </Grid>
       </Layout>
     </div>
@@ -124,47 +119,171 @@ const links = [
 
 const students = [
   {
-    name: "Shubham Singh",
-    slug: "shubham-singh",
-    yearIn: 2017,
-    yearOut: 2021,
-    about: "Keep calm and study without worries",
-    job: [
+    isAdmin: false,
+    name: "Avinash Jha",
+    email: "sam@gmail.com",
+    about: "Hi I am Avinash Jha",
+    stream: "IT",
+    slug: "hritik-raj",
+    yearIn: "2018",
+    yearOut: "2022",
+    social: [
       {
-        title: "SDE",
-        companyName: "Amazon",
-        joining: "18/07/2022",
+        name: "Github",
+        link: "https://github.com/A-Jha",
+      },
+      {
+        name: "linkedIn",
+        link: "https://www.linkedin.com/in/avvinashjha/",
       },
     ],
+    company: [
+      {
+        companyName: "Wipro",
+        title: "Project Engineer",
+        joining: "1/08/2022",
+      },
+    ],
+    gender: "male",
   },
-
   {
-    name: "Shubham Singh",
-    slug: "shubham-singh",
-    yearIn: 2017,
-    yearOut: 2021,
-    about: "Keep calm and study without worries",
-    job: [
+    isAdmin: false,
+    name: "Hritik Raj",
+    email: "sam@gmail.com",
+    about: "Hi I am Hritik Raj",
+    stream: "IT",
+    slug: "hritik-raj",
+    yearIn: "2018",
+    yearOut: "2022",
+    social: [
       {
-        title: "SDE",
-        companyName: "Amazon",
-        joining: "18/07/2022",
+        name: "Github",
+        link: "https://github.com/A-Jha",
+      },
+      {
+        name: "linkedIn",
+        link: "https://www.linkedin.com/in/avvinashjha/",
       },
     ],
+    company: [
+      {
+        companyName: "Wipro",
+        title: "Project Engineer",
+        joining: "1/08/2022",
+      },
+    ],
+    gender: "male",
   },
-
   {
-    name: "Shubham Singh",
-    slug: "shubham-singh",
-    yearIn: 2017,
-    yearOut: 2021,
-    about: "Keep calm and study without worries",
-    job: [
+    isAdmin: false,
+    name: "Raja Biswas",
+    email: "sam@gmail.com",
+    about: "Hi I am Raja Biswas",
+    stream: "IT",
+    slug: "hritik-raj",
+    yearIn: "2018",
+    yearOut: "2022",
+    social: [
       {
-        title: "SDE",
-        companyName: "Amazon",
-        joining: "18/07/2022",
+        name: "Github",
+        link: "https://github.com/A-Jha",
+      },
+      {
+        name: "linkedIn",
+        link: "https://www.linkedin.com/in/avvinashjha/",
       },
     ],
+    company: [
+      {
+        companyName: "Wipro",
+        title: "Project Engineer",
+        joining: "1/08/2022",
+      },
+    ],
+    gender: "male",
+  },
+  {
+    isAdmin: false,
+    name: "Avinash Sharma",
+    email: "sam@gmail.com",
+    about: "Hi I am Avinash Sharma",
+    stream: "IT",
+    slug: "Avinash Sharma",
+    yearIn: "2018",
+    yearOut: "2022",
+    social: [
+      {
+        name: "Github",
+        link: "https://github.com/A-Jha",
+      },
+      {
+        name: "linkedIn",
+        link: "https://www.linkedin.com/in/avvinashjha/",
+      },
+    ],
+    company: [
+      {
+        companyName: "Wipro",
+        title: "Project Engineer",
+        joining: "1/08/2022",
+      },
+    ],
+    gender: "male",
+  },
+  {
+    isAdmin: false,
+    name: "Debashish Roy",
+    email: "sam@gmail.com",
+    about: "Hi I am Hritik Raj",
+    stream: "IT",
+    slug: "hritik-raj",
+    yearIn: "2018",
+    yearOut: "2022",
+    social: [
+      {
+        name: "Github",
+        link: "https://github.com/A-Jha",
+      },
+      {
+        name: "linkedIn",
+        link: "https://www.linkedin.com/in/avvinashjha/",
+      },
+    ],
+    company: [
+      {
+        companyName: "Wipro",
+        title: "Project Engineer",
+        joining: "1/08/2022",
+      },
+    ],
+    gender: "male",
+  },
+  {
+    isAdmin: false,
+    name: "Ravi Raj",
+    email: "sam@gmail.com",
+    about: "Hi I am Hritik Raj",
+    stream: "IT",
+    slug: "hritik-raj",
+    yearIn: "2018",
+    yearOut: "2022",
+    social: [
+      {
+        name: "Github",
+        link: "https://github.com/A-Jha",
+      },
+      {
+        name: "linkedIn",
+        link: "https://www.linkedin.com/in/avvinashjha/",
+      },
+    ],
+    company: [
+      {
+        companyName: "Wipro",
+        title: "Project Engineer",
+        joining: "1/08/2022",
+      },
+    ],
+    gender: "male",
   },
 ];

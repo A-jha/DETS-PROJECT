@@ -166,9 +166,10 @@ function Header({ children, title }) {
                   open={Boolean(anchorEl)}
                   onClose={loginMenuCloseHandler}
                 >
-                  <MenuItem onClick={loginMenuCloseHandler}>Profile</MenuItem>
                   <MenuItem onClick={loginMenuCloseHandler}>
-                    My account
+                    <NextLink href={"/alumni/" + userInfo.slug} passHref>
+                      <Link>Profile</Link>
+                    </NextLink>
                   </MenuItem>
                   <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
                 </Menu>
@@ -250,7 +251,6 @@ const links = [
 ];
 
 const others = [
-  { title: "FAQS", path: "/info/faqs", icon: <Questions /> },
   { title: "Feedback", path: "/info/feedback", icon: <Feedback /> },
   { title: "Sitemap", path: "/info/sitemap", icon: <SitemapIcon /> },
 ];

@@ -4,15 +4,21 @@
   justify-content: center;
   /* align-items: center; */
 }
-.profileHeader {
+.heading {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column !important;
+  margin-bottom: 30px !important;
+}
+.profileHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column !important;
   /* background-color: cornflowerblue; */
   border-radius: 10px;
-  margin: 10px;
+  margin: 10px !important;
   padding-top: 10px;
   background-image: linear-gradient(cornflowerblue, rgb(94, 94, 174));
 }
@@ -97,13 +103,7 @@
 .linksToVerify {
   font-weight: 600;
 }
-.heading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column !important;
-  margin-bottom: 20px;
-}
+
 .bottomBar {
   width: 300px !important;
   height: 10px;
